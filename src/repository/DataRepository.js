@@ -4,7 +4,7 @@ export class DataRepository {
 
   constructor() {
     if (DataRepository.instance) return DataRepository.instance;
-    this._store = new Map(); // Map<typeName, Map<id, entity>>
+    this._store = new Map(); 
     DataRepository.instance = this;
   }
 
@@ -51,7 +51,6 @@ export class DataRepository {
     return val ? JSON.parse(JSON.stringify(val)) : null;
   }
 
-  // helper for demo
   _all(typeName) {
     const bucket = this._bucketByName(typeName);
     return Array.from(bucket.values());
