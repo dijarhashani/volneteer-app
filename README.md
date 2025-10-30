@@ -29,3 +29,7 @@ node src/main.js
 ## Docs
 - `docs/docs.pdf`
 - `docs/risks_and_patterns.md`
+
+## UML
+- `docs/UML/CLASSDIAGRAM.png`
+- `docs/UML/sequences/`
