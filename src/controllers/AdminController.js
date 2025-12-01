@@ -1,4 +1,8 @@
-// AdminController (UML: approveOpportunity(oppld:int), manageUsers(), viewReports())
+// AdminController
+// Uses Repository (DIP) + NotificationService + State pattern on Application
+
+import { Application } from '../models/Application.js';
+
 export class AdminController {
   constructor(repository, notificationService) {
     this.repository = repository;
@@ -13,6 +17,51 @@ export class AdminController {
     return opp;
   }
 
-  manageUsers() { return 'manageUsers executed'; }
-  viewReports() { return 'viewReports executed'; }
+  approveApplication(applicationId) {
+    const raw = this.repository.fetchById(applicationId, 'Application');
+    if (!raw) throw new Error('Application not found');
+
+    
+    const application = new Application(
+      raw.applicationId,
+      raw.volunteerId,
+      raw.opportunityId,
+      raw.status,
+      new Date(raw.submissionDate)
+    );
+
+    application.approve();
+    this.repository.update(application);
+
+    
+
+    return application;
+  }
+
+  rejectApplication(applicationId) {
+    const raw = this.repository.fetchById(applicationId, 'Application');
+    if (!raw) throw new Error('Application not found');
+
+    const application = new Application(
+      raw.applicationId,
+      raw.volunteerId,
+      raw.opportunityId,
+      raw.status,
+      new Date(raw.submissionDate)
+    );
+
+    application.reject();
+    this.repository.update(application);
+    return application;
+  }
+
+  manageUsers() {
+    
+    return 'manageUsers executed';
+  }
+
+  viewReports() {
+    
+    return 'viewReports executed';
+  }
 }

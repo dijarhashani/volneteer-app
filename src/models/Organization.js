@@ -6,6 +6,11 @@ export class Organization {
     this.contactInfo = contactInfo;
   }
 
-  createOpportunity(opportunity) { return opportunity; }
-  viewApplications(applications = []) { return applications.filter(a => a && a.opportunityId); }
+  createOpportunity(opportunity) {
+    return opportunity;
+  }
+
+  viewApplications(applications = []) {
+    return applications.filter(a => a && a.opportunityId);
+  }
 }

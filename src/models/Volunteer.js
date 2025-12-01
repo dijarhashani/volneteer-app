@@ -2,10 +2,11 @@
 import { User } from './User.js';
 
 export class Volunteer extends User {
-  constructor(userId, name, email, password, skills = [], availability = 'Flexible') {
+  constructor(userId, name, email, password, skills = [], availability = {}, location = null) {
     super(userId, name, email, password);
     this.skills = skills;
     this.availability = availability;
+    this.location = location;
   }
 
   updateProfile(data = {}) {

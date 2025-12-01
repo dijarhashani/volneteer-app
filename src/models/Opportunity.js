@@ -1,15 +1,11 @@
 // Opportunity model (UML: Opportunity)
 export class Opportunity {
-  constructor(opportunityId, title, description, location, date, requiredSkills = []) {
+  constructor(opportunityId, title, description, requiredSkills = [], location = null, approved = false) {
     this.opportunityId = opportunityId;
     this.title = title;
     this.description = description;
-    this.location = location;
-    this.date = date;
     this.requiredSkills = requiredSkills;
-    this.approved = false;
+    this.location = location;
+    this.approved = approved;
   }
-
-  getDetails() { return `${this.title} @ ${this.location} on ${this.date}`; }
-  updateOpportunity(data = {}) { Object.assign(this, data); return this; }
 }

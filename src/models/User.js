@@ -4,7 +4,7 @@ export class User {
     this.userId = userId;
     this.name = name;
     this.email = email;
-    this.password = password; // NOTE: placeholder; do not store plaintext in production
+    this.password = password; 
   }
 
   register() { return `User ${this.name} registered`; }
