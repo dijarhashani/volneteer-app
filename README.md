@@ -26,10 +26,4 @@ node src/main.js
 - Cloning on write/read in repository to prevent accidental shared references.
 - No global arrays; all data stored in typed buckets.
 
-## Docs
-- `docs/docs.pdf`
-- `docs/risks_and_patterns.md`
 
-## UML
-- `docs/UML/CLASSDIAGRAM.png`
-- `docs/UML/sequences/`
